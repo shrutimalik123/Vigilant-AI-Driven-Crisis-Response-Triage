@@ -2,7 +2,16 @@
 
 **Vigilant** is a real-time, voice-enabled emergency coordination platform designed for the Nexora "Smart Cities" and "Healthcare" tracks. It acts as an intelligent bridge between citizens in crisis and emergency responders.
 
-![Vigilant Status](https://img.shields.io/badge/Status-Prototype-orange) ![Stack](https://img.shields.io/badge/Stack-React%20%7C%20Node.js%20%7C%20Socket.io-blue)
+![Vigilant Status](https://img.shields.io/badge/Status-Prototype-orange) ![Stack](https://img.shields.io/badge/Stack-React%20%7C%20Node.js%20%7C%20Socket.io-blue) [![Live Demo](https://img.shields.io/badge/Live-Demo-2ea44f)](https://vigilant-client.onrender.com/)
+
+## 🌐 Live Demo & How to Test
+
+**Try the prototype here:** [https://vigilant-client.onrender.com/](https://vigilant-client.onrender.com/)
+
+**What you can do now:**
+1. **User Interface (PWA):** Open the link on your mobile device (or resize browser) to see the "Panic Mode" interface.
+2. **Responder Dashboard:** navigate to `/dashboard` (e.g., `...onrender.com/dashboard`) to see the real-time map.
+3. **Simulation:** The system mocks the "AI Analysis" phase to demonstrate the user flow from "Listening" to "Dispatched".
 
 ## 🚀 What Works (Current Status)
 
