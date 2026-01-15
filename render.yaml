@@ -1,5 +1,4 @@
 services:
-  # Backend Service (Node.js + Socket.io)
   - type: web
     name: vigilant-server
     env: node
@@ -10,7 +9,6 @@ services:
       - key: PORT
         value: 10000
 
-  # Frontend Service (React + Vite)
   - type: static
     name: vigilant-client
     env: static
@@ -19,6 +17,6 @@ services:
     envVars:
       - key: VITE_API_URL
         fromService:
-            type: web
-            name: vigilant-server
-            envVarKey: RENDER_EXTERNAL_URL
+          type: web
+          name: vigilant-server
+          envVarKey: RENDER_EXTERNAL_URL
