@@ -1,0 +1,24 @@
+services:
+  # Backend Service (Node.js + Socket.io)
+  - type: web
+    name: vigilant-server
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && node index.js
+    envVars:
+      - key: PORT
+        value: 10000
+
+  # Frontend Service (React + Vite)
+  - type: static
+    name: vigilant-client
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+            type: web
+            name: vigilant-server
+            envVarKey: RENDER_EXTERNAL_URL
