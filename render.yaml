@@ -9,11 +9,10 @@ services:
       - key: PORT
         value: 10000
 
-  - type: static
-    name: vigilant-client
-    env: static
+staticSites:
+  - name: vigilant-client
     buildCommand: cd client && npm install && npm run build
-    staticPublishPath: client/dist
+    publishPath: client/dist
     envVars:
       - key: VITE_API_URL
         fromService:
