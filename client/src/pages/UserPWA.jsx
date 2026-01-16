@@ -56,9 +56,35 @@ const UserPWA = () => {
         setTimeout(() => {
             setStatus('ANALYZING');
             setTimeout(() => {
+                triggerIncident();
                 setStatus('DISPATCHED');
             }, 3000);
         }, 5000);
+    };
+
+    const triggerIncident = async () => {
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
+        // Mock data usually derived from AI analysis
+        const payload = {
+            category: "Medical Emergency",
+            severity: "CRITICAL",
+            summary: "User reported difficulty breathing and chest pain. Detected high distress levels in voice analysis.",
+            lat: 37.7749 + (Math.random() - 0.5) * 0.01, // Randomize slightly around SF
+            lng: -122.4194 + (Math.random() - 0.5) * 0.01,
+            locationName: "Downtown Sector 4"
+        };
+
+        try {
+            await fetch(`${API_URL}/api/incident`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            console.log("Incident reported to backend");
+        } catch (error) {
+            console.error("Failed to report incident:", error);
+        }
     };
 
     return (
